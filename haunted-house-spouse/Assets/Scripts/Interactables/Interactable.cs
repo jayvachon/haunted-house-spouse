@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Interactable : MonoBehaviour {
+public class Interactable : MonoBehaviour, IClickable {
 
 	bool colliding = false;
 	public string Hint {
@@ -40,4 +40,7 @@ public class Interactable : MonoBehaviour {
 		SetText ();
 	}
 	protected virtual void OnInteract () {}
+	public virtual void Click (bool left) {}
+	public virtual void Drag (bool left, Vector3 mousePosition) {}
+	public virtual void Release (bool left) {}
 }
