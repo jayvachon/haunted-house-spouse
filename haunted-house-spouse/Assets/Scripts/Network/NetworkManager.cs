@@ -21,6 +21,10 @@ public class NetworkManager : MonoBehaviour {
 	}
 	Settings settings;
 
+	public static bool Ghost {
+		get { return Network.isServer; }
+	}
+
 	void Awake () {
 		settings = new Settings (6, false, 5f);
 		MasterServer.ClearHostList ();
