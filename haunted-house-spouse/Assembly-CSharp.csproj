@@ -46,22 +46,13 @@
 	</Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Example Games\2D Scrolling Shooter\Scripts\Background.cs" />
-     <Compile Include="Assets\Example Games\2D Scrolling Shooter\Scripts\Bullet.cs" />
-     <Compile Include="Assets\Example Games\2D Scrolling Shooter\Scripts\DestroyArea.cs" />
-     <Compile Include="Assets\Example Games\2D Scrolling Shooter\Scripts\Emitter.cs" />
-     <Compile Include="Assets\Example Games\2D Scrolling Shooter\Scripts\Enemy.cs" />
-     <Compile Include="Assets\Example Games\2D Scrolling Shooter\Scripts\Explosion.cs" />
-     <Compile Include="Assets\Example Games\2D Scrolling Shooter\Scripts\Manager.cs" />
-     <Compile Include="Assets\Example Games\2D Scrolling Shooter\Scripts\ObjectPool.cs" />
-     <Compile Include="Assets\Example Games\2D Scrolling Shooter\Scripts\Player.cs" />
-     <Compile Include="Assets\Example Games\2D Scrolling Shooter\Scripts\ShipResetScript.cs" />
-     <Compile Include="Assets\Example Games\2D Scrolling Shooter\Scripts\Spaceship.cs" />
-     <Compile Include="Assets\Example Games\2D Scrolling Shooter\Scripts\WaveScript.cs" />
      <Compile Include="Assets\PlayerControl.cs" />
      <Compile Include="Assets\Scripts\EventHandling\Events.cs" />
-     <None Include="Assets\Example Games\2D Scrolling Shooter\Fonts\PressStart2P-Regular\OFL.txt" />
-     <None Include="Assets\Example Games\2D Scrolling Shooter\_ReadMe.txt" />
+     <Compile Include="Assets\Scripts\Interactables\Interactable.cs" />
+     <Compile Include="Assets\Scripts\Interactables\Note.cs" />
+     <Compile Include="Assets\Scripts\Network\NetworkManager.cs" />
+     <Compile Include="Assets\Scripts\Player\Player.cs" />
+     <Compile Include="Assets\Scripts\UI\InteractableText.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files (x86)/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/4.6.1/UnityEngine.UI.dll</HintPath>
  </Reference>
