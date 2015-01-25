@@ -18,18 +18,24 @@ public class PlayerAnimation : MonoBehaviour {
 	
 	void FixedUpdate () 
 	{
-		float move = Input.GetAxis ("Horizontal");
+				float move = Input.GetAxis ("Horizontal");
 
-		anim.SetFloat ("Speed", Mathf.Abs (move));
+				anim.SetFloat ("Speed", Mathf.Abs (move));
 
-		rigidbody.velocity = new Vector2(move * maxSpeed, rigidbody.velocity.y);
+				rigidbody.velocity = new Vector2 (move * maxSpeed, rigidbody.velocity.y);
 		
-		if (move > 0 && !facingRight)
-			Flip ();
-		else if (move < 0 && facingRight)
-			Flip ();
-	}
-	
+				if (move > 0 && !facingRight)
+						Flip ();
+				else if (move < 0 && facingRight)
+						Flip ();
+
+				if (Input.GetKeyDown (KeyCode.A) || Input.GetKeyDown (KeyCode.D) || Input.GetKeyDown (KeyCode.RightArrow) || Input.GetKeyDown (KeyCode.LeftArrow)) {
+						AudioManager.instance.Loop ("footsteps"); 
+				}
+				if (Input.GetKeyUp (KeyCode.A) || Input.GetKeyUp (KeyCode.D) || Input.GetKeyUp (KeyCode.RightArrow) || Input.GetKeyUp (KeyCode.LeftArrow)) {
+						AudioManager.instance.Stop ("footsteps");
+				}
+		}
 	void Flip()
 	{ 
 		facingRight = !facingRight;
