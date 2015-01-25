@@ -3,6 +3,12 @@ using System.Collections;
 
 public class Note : Interactable {
 
+	public string[] notes;
+	bool noteSet = false;
+	public bool NoteSet {
+		set { noteSet = value; }
+	}
+
 	void Awake () {
 		if (NetworkManager.Ghost) {
 			Visible = true;
@@ -12,7 +18,9 @@ public class Note : Interactable {
 	}
 
 	public override void GhostClick () {
-		NotesMenu.instance.ShowNotes (this, new string[] {"test", "ok another ttest"});	
+		if (!noteSet) {
+			NotesMenu.instance.ShowNotes (this, notes);	
+		}
 	}
 
 	[RPC] void ReceiveContent (string newContent) {

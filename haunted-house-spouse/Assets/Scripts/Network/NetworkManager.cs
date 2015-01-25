@@ -26,7 +26,7 @@ public class NetworkManager : MonoBehaviour {
 	}
 
 	void Awake () {
-		settings = new Settings (6, false, 5f);
+		settings = new Settings (6, false, 2.5f);
 		MasterServer.ClearHostList ();
 		RefreshHostList ();
 	}
