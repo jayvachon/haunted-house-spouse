@@ -6,8 +6,8 @@ public class TreasureChest : Interactable {
 	public JumpScareImage jumpScare;
 
 	void Awake () {
-		Visible = true;
-		Content = "oh wow its a freakin treasure chest";
+		//Visible = true;
+		Content = "oh wow its a freakin vase";
 		Options = new string[] { "jump scare" };
 	}
 

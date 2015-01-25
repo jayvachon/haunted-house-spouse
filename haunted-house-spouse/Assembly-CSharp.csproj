@@ -57,10 +57,12 @@
      <Compile Include="Assets\Scripts\HideSpot.cs" />
      <Compile Include="Assets\Scripts\Input\IClickable.cs" />
      <Compile Include="Assets\Scripts\Input\MouseController.cs" />
+     <Compile Include="Assets\Scripts\Interactables\Art.cs" />
      <Compile Include="Assets\Scripts\Interactables\Chair.cs" />
      <Compile Include="Assets\Scripts\Interactables\Interactable.cs" />
      <Compile Include="Assets\Scripts\Interactables\Monster.cs" />
      <Compile Include="Assets\Scripts\Interactables\Note.cs" />
+     <Compile Include="Assets\Scripts\Interactables\Portrait.cs" />
      <Compile Include="Assets\Scripts\Interactables\Spider.cs" />
      <Compile Include="Assets\Scripts\Interactables\Television.cs" />
      <Compile Include="Assets\Scripts\Interactables\TreasureChest.cs" />

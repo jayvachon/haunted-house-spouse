@@ -15,6 +15,10 @@ public class AudioManager : MonoBehaviour {
 		sources.Add (GetComponent<AudioSource> ());
 	}
 
+	void Start () {
+		Loop ("facemixfinal");
+	}
+
 	/*void Update () {
 		if (Input.GetKey (KeyCode.Q) || Input.GetKey (KeyCode.W)) {
 			Loop ("footsteps_walk_carpet_3");

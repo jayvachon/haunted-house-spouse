@@ -12,6 +12,7 @@ public class JumpScareImage : MonoBehaviour {
 
 	public void Show () {
 		myRenderer.enabled = true;
+		AudioManager.instance.Play ("jumpscare");
 		Invoke ("Hide", 0.5f);
 	}
 
