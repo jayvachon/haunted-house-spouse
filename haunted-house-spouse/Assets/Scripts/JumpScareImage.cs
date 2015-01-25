@@ -3,19 +3,19 @@ using System.Collections;
 
 public class JumpScareImage : MonoBehaviour {
 
-	Renderer renderer;
+	Renderer myRenderer;
 
 	void Awake () {
-		renderer = GetComponent<Renderer> ();
-		renderer.enabled = false;
+		myRenderer = GetComponent<Renderer> ();
+		myRenderer.enabled = false;
 	}
 
 	public void Show () {
-		renderer.enabled = true;
+		myRenderer.enabled = true;
 		Invoke ("Hide", 0.5f);
 	}
 
 	void Hide () {
-		renderer.enabled = false;
+		myRenderer.enabled = false;
 	}
 }

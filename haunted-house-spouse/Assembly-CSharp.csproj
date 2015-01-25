@@ -48,6 +48,8 @@
   <ItemGroup>
      <Compile Include="Assets\NewBehaviourScript.cs" />
      <Compile Include="Assets\PlayerControl.cs" />
+     <Compile Include="Assets\Scripts\Audio\AudioManager.cs" />
+     <Compile Include="Assets\Scripts\Audio\AudioTriggerPoint.cs" />
      <Compile Include="Assets\Scripts\EventHandling\Events.cs" />
      <Compile Include="Assets\Scripts\Extensions\ExtensionMethods.cs" />
      <Compile Include="Assets\Scripts\HideSpot.cs" />
