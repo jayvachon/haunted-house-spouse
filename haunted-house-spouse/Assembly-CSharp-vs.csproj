@@ -52,6 +52,7 @@
      <Compile Include="Assets\Scripts\Audio\AudioTriggerPoint.cs" />
      <Compile Include="Assets\Scripts\EventHandling\Events.cs" />
      <Compile Include="Assets\Scripts\Extensions\ExtensionMethods.cs" />
+     <Compile Include="Assets\Scripts\Fade.cs" />
      <Compile Include="Assets\Scripts\GameLight.cs" />
      <Compile Include="Assets\Scripts\HideSpot.cs" />
      <Compile Include="Assets\Scripts\Input\IClickable.cs" />
