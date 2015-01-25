@@ -30,7 +30,7 @@ public class NotesMenu : MonoBehaviour {
 		if (!show) return;
 		for (int i = 0; i < notes.Length; i ++) {
 			string content = notes[i];
-			if (GUILayout.Button (content, GUILayout.Width (300), GUILayout.Height (75))) {
+			if (GUILayout.Button ("the note reads: " + content, GUILayout.Width (300), GUILayout.Height (75))) {
 				selectedNote.SendContent (content);
 				selectedNote.NoteSet = true;
 				show = false;
