@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -13,6 +13,15 @@ public class AudioManager : MonoBehaviour {
 		if (instance == null)
 			instance = this;
 		sources.Add (GetComponent<AudioSource> ());
+	}
+
+	void Update () {
+		if (Input.GetKeyDown (KeyCode.Q)) {
+			Loop ("jumpscare");
+		}
+		if (Input.GetKeyDown (KeyCode.W)) {
+			Stop ("jumpscare");
+		}
 	}
 
 	public void Play (AudioClip clip) {
@@ -35,6 +44,11 @@ public class AudioManager : MonoBehaviour {
 		source.Play ();
 	}
 
+	public void Stop (string name) {
+		AudioSource source = GetPlayingSource (name);
+		source.Stop ();
+	}
+
 	AudioClip GetClip (string name) {
 		for (int i = 0; i < clips.Length; i ++) {
 			if (clips[i].name == name)
@@ -52,5 +66,13 @@ public class AudioManager : MonoBehaviour {
 		AudioSource newSource = gameObject.AddComponent<AudioSource> ();
 		sources.Add (newSource);
 		return newSource;
+	}
+
+	AudioSource GetPlayingSource (string clipName) {
+		foreach (AudioSource source in sources) {
+			if (source.clip.name == clipName)
+				return source;
+		}
+		return null;
 	}
 }
