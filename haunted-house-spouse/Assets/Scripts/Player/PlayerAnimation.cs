@@ -4,6 +4,7 @@ using System.Collections;
 public class PlayerAnimation : MonoBehaviour {
 	
 	public float maxSpeed = 10f;
+	public Light flashlight;
 	bool facingRight = true;
 
 	Animator anim; 
@@ -33,5 +34,11 @@ public class PlayerAnimation : MonoBehaviour {
 		Vector3 theScale = transform.localScale;
 		theScale.x *= -1;
 		transform.localScale = theScale;
+
+		if (facingRight) {
+			flashlight.transform.localEulerAngles = new Vector3 (flashlight.transform.localEulerAngles.x, 64, flashlight.transform.localEulerAngles.z);
+		} else {
+			flashlight.transform.localEulerAngles = new Vector3 (flashlight.transform.localEulerAngles.x, -64, flashlight.transform.localEulerAngles.z);
+		}
 	}
 }
