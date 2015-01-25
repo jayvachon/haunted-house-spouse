@@ -15,10 +15,12 @@ public class Player : MonoBehaviour {
 
 	void Update () {
 		if (NetworkManager.Ghost) return;
+		
 		if (!hiding) {
 			float translation = Input.GetAxis ("Horizontal") * speed * Time.deltaTime;
 			transform.Translate (translation, 0, 0);
 		}
+
 		if (CanHide) {
 			if (Input.GetKeyDown (KeyCode.W) || Input.GetKeyDown (KeyCode.UpArrow) || Input.GetKeyDown (KeyCode.S) || Input.GetKeyDown (KeyCode.DownArrow)) {
 				hiding = !hiding;
