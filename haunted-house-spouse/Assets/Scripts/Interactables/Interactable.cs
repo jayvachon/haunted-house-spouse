@@ -27,7 +27,7 @@ public class Interactable : MonoBehaviour, IClickable {
 
 	protected virtual string[] Options { get; set; }
 
-	void OnTriggerEnter (Collider other) {
+	protected virtual void OnTriggerEnter (Collider other) {
 		if (NetworkManager.Ghost) return;
 		if (other.name == "Player") {
 			colliding = true;
@@ -35,7 +35,7 @@ public class Interactable : MonoBehaviour, IClickable {
 		}
 	}
 
-	void OnTriggerExit (Collider other) {
+	protected virtual void OnTriggerExit (Collider other) {
 		if (NetworkManager.Ghost) return;
 		if (other.name == "Player") {
 			colliding = false;

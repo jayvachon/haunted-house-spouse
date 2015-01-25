@@ -5,8 +5,8 @@ public class Monster : Interactable {
 
 	public Transform player;
 	float xMin = -20;
-	float xMax = 20;
-	float speed = 2;
+	float xMax = 100;
+	float speed = 1;
 	bool running = false;
 
 	void Awake () {
@@ -15,12 +15,12 @@ public class Monster : Interactable {
 		} else {
 			Visible = false;
 		}
-		//Visible = true;
 		Options = new string[] {"APPEAR!"};
 	}
 
 	void Run (bool left) {
 		if (running) return;
+		Visible = true;
 		StartCoroutine (CoRun (left));
 	}
 
@@ -41,7 +41,7 @@ public class Monster : Interactable {
 
 	void OnTriggerEnter (Collider other){
 		if (!running) return;
-		Player player = other.gameObject.GetScript<Player> ();
+		PlayerAnimation player = other.gameObject.GetScript<PlayerAnimation> ();
 		if (player != null) {
 			player.Faint ();
 		}

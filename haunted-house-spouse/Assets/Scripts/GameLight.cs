@@ -3,7 +3,7 @@ using System.Collections;
 
 public class GameLight : MonoBehaviour {
 
-	Light light;
+	new Light light;
 
 	void Awake () {
 		light = GetComponent<Light>();

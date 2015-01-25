@@ -24,7 +24,7 @@ public class ActionsMenu : MonoBehaviour {
 		if (!show) return;
 		for (int i = 0; i < options.Length; i ++) {
 			string content = options[i];
-			if (GUILayout.Button (content)) {
+			if (GUILayout.Button (content, GUILayout.Width (300), GUILayout.Height (75))) {
 				selectedInteractable.SendContent (content);
 				show = false;
 			}

@@ -1,16 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class HideSpot : MonoBehaviour {
+public class HideSpot : Interactable {
 
-	void OnTriggerEnter (Collider other) {
+	void Awake () {
+		Content = "Press up or down to hide";
+	}
+
+	public override void GhostClick () {}
+
+	protected override void OnTriggerEnter (Collider other) {
+		base.OnTriggerEnter (other);
 		PlayerAnimation player = other.gameObject.GetScript<PlayerAnimation> ();
 		if (player != null) {
 			player.CanHide = true;
 		}
 	}
 
-	void OnTriggerExit (Collider other){
+	protected override void OnTriggerExit (Collider other){
+		base.OnTriggerExit (other);
 		PlayerAnimation player = other.gameObject.GetScript<PlayerAnimation> ();
 		if (player != null) {
 			player.CanHide = false;
