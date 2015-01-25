@@ -1,0 +1,135 @@
+fileFormatVersion: 2
+guid: 1a50fc5724a63a74dab08e11dc684936
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: sprites_protagonist_walk_right_0
+    21300002: sprites_protagonist_walk_right_1
+    21300004: sprites_protagonist_walk_right_2
+    21300006: sprites_protagonist_walk_right_3
+    21300008: sprites_protagonist_walk_right_4
+    21300010: sprites_protagonist_walk_right_5
+    21300012: sprites_protagonist_walk_right_6
+    21300014: sprites_protagonist_walk_right_7
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: .25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  seamlessCubemap: 0
+  textureFormat: -3
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: .5, y: .5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: sprites_protagonist_walk_right_0
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 11
+        width: 83
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sprites_protagonist_walk_right_1
+      rect:
+        serializedVersion: 2
+        x: 170
+        y: 8
+        width: 72
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sprites_protagonist_walk_right_2
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 8
+        width: 62
+        height: 189
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sprites_protagonist_walk_right_3
+      rect:
+        serializedVersion: 2
+        x: 485
+        y: 8
+        width: 81
+        height: 186
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sprites_protagonist_walk_right_4
+      rect:
+        serializedVersion: 2
+        x: 633
+        y: 11
+        width: 87
+        height: 180
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sprites_protagonist_walk_right_5
+      rect:
+        serializedVersion: 2
+        x: 786
+        y: 8
+        width: 76
+        height: 184
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sprites_protagonist_walk_right_6
+      rect:
+        serializedVersion: 2
+        x: 946
+        y: 8
+        width: 62
+        height: 189
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+    - name: sprites_protagonist_walk_right_7
+      rect:
+        serializedVersion: 2
+        x: 1101
+        y: 8
+        width: 77
+        height: 183
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+  spritePackingTag: 
+  userData: 
