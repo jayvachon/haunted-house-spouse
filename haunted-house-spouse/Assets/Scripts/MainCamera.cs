@@ -4,6 +4,7 @@ using System.Collections;
 public class MainCamera : MonoBehaviour {
 
 	public Transform player;
+	public Transform viewBox;
 	Vector3 startPosition;
 	public float xMin = -2;
 	public float xMax = 2;
@@ -18,6 +19,7 @@ public class MainCamera : MonoBehaviour {
 		} else {
 			camera.orthographicSize = 3;
 			startPosition.y = -0.8f;
+			viewBox.gameObject.SetActive (false);
 		}
 	}
 

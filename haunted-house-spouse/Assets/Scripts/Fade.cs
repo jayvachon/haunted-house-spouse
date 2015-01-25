@@ -3,7 +3,6 @@ using System.Collections;
 
 public class Fade : MonoBehaviour {
 
-	float fadeTime = 0.5f;
 	Material material;
 	bool fading = false;
 
@@ -30,23 +29,23 @@ public class Fade : MonoBehaviour {
 
 	public void FadeIn () {
 		if (fading) return;
-		StartCoroutine (CoFade (0, 1));
+		StartCoroutine (CoFade (0, 1, 3));
 	}
 
 	public void FadeOut () {
 		if (fading) return;
-		StartCoroutine (CoFade (1, 0));
+		StartCoroutine (CoFade (1, 0, 0.25f));
 	}
 
-	IEnumerator CoFade (float from, float to) {
+	IEnumerator CoFade (float from, float to, float time) {
 		
 		fading = true;
 		float eTime = 0;
 		Color color = Color.black;
 
-		while (eTime < fadeTime) {
+		while (eTime < time) {
 			eTime += Time.deltaTime;
-			color.a = Mathf.Lerp (from, to, Mathf.SmoothStep (0, 1, eTime / fadeTime));
+			color.a = Mathf.Lerp (from, to, Mathf.SmoothStep (0, 1, eTime / time));
 			material.color = color;
 			yield return null;
 		} 
