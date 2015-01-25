@@ -108,7 +108,8 @@ public class NetworkManager : MonoBehaviour {
 	}
 
 	void OnGUI () {
-		GUILayout.Label (debugText);
+		//GUILayout.Label (debugText);
+		GUILayout.Label ("loading. give it a couple secs.");
 	}
 
 	void OnApplicationQuit () {
@@ -116,6 +117,6 @@ public class NetworkManager : MonoBehaviour {
 	}
 
 	[RPC] void OnConnect () {
-		Application.LoadLevel ("Jay");
+		Application.LoadLevel ("House");
 	}
 }

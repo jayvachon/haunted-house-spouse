@@ -68,10 +68,12 @@ public class PlayerAnimation : MonoBehaviour {
 			playerlight.DisableLight ();
 			flashlight.DisableLight ();
 			flashlight2.DisableLight ();
+			networkView.RPC ("EnableHide", RPCMode.Server);
 		} else {
 			playerlight.EnableLight ();
 			flashlight.EnableLight ();
 			flashlight2.EnableLight ();
+			networkView.RPC ("DisableHide", RPCMode.Server);
 		}
 	}
 
@@ -99,13 +101,51 @@ public class PlayerAnimation : MonoBehaviour {
 		} else {
 			flashlight2.transform.localEulerAngles = new Vector3 (flashlight2.transform.localEulerAngles.x, -54, flashlight2.transform.localEulerAngles.z);
 		}
-
+		networkView.RPC ("ServerFlip", RPCMode.Server, facingRight);
 	}
 
 	public void Faint () {
 		if (!hiding) {
 			fade.FadeIn ();
 			canMove = false;
+		}
+	}
+
+	[RPC] void EnableHide () {
+		rigidbody.velocity = Vector2.zero;
+		anim.SetFloat ("Speed", 0);
+		playerlight.DisableLight ();
+		flashlight.DisableLight ();
+		flashlight2.DisableLight ();
+	}
+
+	[RPC] void DisableHide () {
+		playerlight.EnableLight ();
+		flashlight.EnableLight ();
+		flashlight2.EnableLight ();
+	}
+
+	[RPC] void ServerFlip (bool facingRight) {
+		Vector3 theScale = transform.localScale;
+		theScale.x *= -1;
+		transform.localScale = theScale;
+
+		if (facingRight) {
+			flashlight.transform.localEulerAngles = new Vector3 (flashlight.transform.localEulerAngles.x, 74, flashlight.transform.localEulerAngles.z);
+		} else {
+			flashlight.transform.localEulerAngles = new Vector3 (flashlight.transform.localEulerAngles.x, -74, flashlight.transform.localEulerAngles.z);
+		}
+
+		if (facingRight) {
+			playerlight.transform.localEulerAngles = new Vector3 (playerlight.transform.localEulerAngles.x, 13, playerlight.transform.localEulerAngles.z);
+		} else {
+			playerlight.transform.localEulerAngles = new Vector3 (playerlight.transform.localEulerAngles.x, -13, playerlight.transform.localEulerAngles.z);
+		}
+
+		if (facingRight) {
+			flashlight2.transform.localEulerAngles = new Vector3 (flashlight2.transform.localEulerAngles.x, 54, flashlight2.transform.localEulerAngles.z);
+		} else {
+			flashlight2.transform.localEulerAngles = new Vector3 (flashlight2.transform.localEulerAngles.x, -54, flashlight2.transform.localEulerAngles.z);
 		}
 	}
 }

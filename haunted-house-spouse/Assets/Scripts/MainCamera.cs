@@ -23,7 +23,7 @@ public class MainCamera : MonoBehaviour {
 
 	void Update () {
 		float x = player.position.x;
-		if (ghost) x += 7;
+		if (ghost) x += 5.5f;
 		x = Mathf.Max (xMin, x);
 		x = Mathf.Min (xMax, x);
 		transform.position = new Vector3 (x, startPosition.y, startPosition.z);
