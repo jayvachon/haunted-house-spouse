@@ -3,10 +3,21 @@ using System.Collections;
 
 public class PlayerAnimation : MonoBehaviour {
 	
+	public Fade fade;
+
+	bool canHide = false;
+	public bool CanHide {
+		get { return canHide; }
+		set { canHide = value; }
+	}
+
+	bool hiding = false;
+	bool canMove = true;
+
 	public float maxSpeed = 10f;
-	public Light flashlight;
-	public Light playerlight;
-	public Light flashlight2;
+	public GameLight flashlight;
+	public GameLight playerlight;
+	public GameLight flashlight2;
 	bool facingRight = true;
 
 	Animator anim; 
@@ -17,25 +28,53 @@ public class PlayerAnimation : MonoBehaviour {
 	}
 	
 	void FixedUpdate () 
-	{
-				float move = Input.GetAxis ("Horizontal");
+	{	
+		if (NetworkManager.Ghost) return;
 
-				anim.SetFloat ("Speed", Mathf.Abs (move));
+		if (!hiding && canMove) {
+			float move = Input.GetAxis ("Horizontal");
+			anim.SetFloat ("Speed", Mathf.Abs (move));
+			rigidbody.velocity = new Vector2 (move * maxSpeed, rigidbody.velocity.y);
 
-				rigidbody.velocity = new Vector2 (move * maxSpeed, rigidbody.velocity.y);
-		
-				if (move > 0 && !facingRight)
-						Flip ();
-				else if (move < 0 && facingRight)
-						Flip ();
+			if (move > 0 && !facingRight)
+					Flip ();
+			else if (move < 0 && facingRight)
+					Flip ();
 
-				if (Input.GetKeyDown (KeyCode.A) || Input.GetKeyDown (KeyCode.D) || Input.GetKeyDown (KeyCode.RightArrow) || Input.GetKeyDown (KeyCode.LeftArrow)) {
-						AudioManager.instance.Loop ("footsteps"); 
-				}
+			if (Input.GetKey (KeyCode.A) || Input.GetKey (KeyCode.D) || Input.GetKey (KeyCode.RightArrow) || Input.GetKey (KeyCode.LeftArrow)) {
+					AudioManager.instance.Loop ("footsteps"); 
+			} else {
 				if (Input.GetKeyUp (KeyCode.A) || Input.GetKeyUp (KeyCode.D) || Input.GetKeyUp (KeyCode.RightArrow) || Input.GetKeyUp (KeyCode.LeftArrow)) {
-						AudioManager.instance.Stop ("footsteps");
+					AudioManager.instance.Stop ("footsteps");
 				}
+			}
 		}
+
+		if (CanHide) {
+			if (Input.GetKeyDown (KeyCode.W) || Input.GetKeyDown (KeyCode.UpArrow) || Input.GetKeyDown (KeyCode.S) || Input.GetKeyDown (KeyCode.DownArrow)) {
+				ToggleHide ();
+				if (hiding) {
+					rigidbody.velocity = Vector2.zero;
+					anim.SetFloat ("Speed", 0);
+					AudioManager.instance.Stop ("footsteps");
+				}
+			}
+		}
+	}
+
+	void ToggleHide () {
+		hiding = !hiding;
+		if (hiding) {
+			playerlight.DisableLight ();
+			flashlight.DisableLight ();
+			flashlight2.DisableLight ();
+		} else {
+			playerlight.EnableLight ();
+			flashlight.EnableLight ();
+			flashlight2.EnableLight ();
+		}
+	}
+
 	void Flip()
 	{ 
 		facingRight = !facingRight;
@@ -61,5 +100,12 @@ public class PlayerAnimation : MonoBehaviour {
 			flashlight2.transform.localEulerAngles = new Vector3 (flashlight2.transform.localEulerAngles.x, -54, flashlight2.transform.localEulerAngles.z);
 		}
 
+	}
+
+	public void Faint () {
+		if (!hiding) {
+			fade.FadeIn ();
+			canMove = false;
+		}
 	}
 }

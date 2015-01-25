@@ -4,14 +4,14 @@ using System.Collections;
 public class HideSpot : MonoBehaviour {
 
 	void OnTriggerEnter (Collider other) {
-		Player player = other.gameObject.GetScript<Player> ();
+		PlayerAnimation player = other.gameObject.GetScript<PlayerAnimation> ();
 		if (player != null) {
 			player.CanHide = true;
 		}
 	}
 
 	void OnTriggerExit (Collider other){
-		Player player = other.gameObject.GetScript<Player> ();
+		PlayerAnimation player = other.gameObject.GetScript<PlayerAnimation> ();
 		if (player != null) {
 			player.CanHide = false;
 		}

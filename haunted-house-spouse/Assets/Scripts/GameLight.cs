@@ -3,16 +3,17 @@ using System.Collections;
 
 public class GameLight : MonoBehaviour {
 
-	public Light insert;
+	Light light;
 
-	// Use this for initialization
-	void Start () {
-	
+	void Awake () {
+		light = GetComponent<Light>();
 	}
-	
-	// Update is called once per frame
-	void Update () {
 
-	
+	public void DisableLight () {
+		light.enabled = false;
+	}
+
+	public void EnableLight () {
+		light.enabled = true;
 	}
 }

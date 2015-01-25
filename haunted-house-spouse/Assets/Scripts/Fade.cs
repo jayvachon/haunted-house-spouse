@@ -22,11 +22,11 @@ public class Fade : MonoBehaviour {
 		}
 	}*/
 
-	void Update () {
+	/*void Update () {
 		if (Input.GetKeyDown (KeyCode.E)) {
 			Application.LoadLevel ("Jay");
 		}
-	}
+	}*/
 
 	public void FadeIn () {
 		if (fading) return;
@@ -57,7 +57,7 @@ public class Fade : MonoBehaviour {
 
 	void OnEndFade () {
 		if (material.color.a >= 0.95f) {
-			Application.LoadLevel ("Jay");
+			Application.LoadLevel ("House");
 		}
 	}
 }
