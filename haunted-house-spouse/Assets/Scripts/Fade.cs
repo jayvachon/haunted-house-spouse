@@ -9,14 +9,31 @@ public class Fade : MonoBehaviour {
 
 	void Awake () {
 		material = GetComponent<Renderer> ().material;
+		material.color = new Color (0, 0, 0, 1);
+		FadeOut ();
 	}
 
-	void FadeIn () {
+	/*void Update () {
+		if (Input.GetKeyDown (KeyCode.Q)) {
+			FadeIn ();
+		}
+		if (Input.GetKeyUp (KeyCode.W)) {
+			FadeOut ();
+		}
+	}*/
+
+	void Update () {
+		if (Input.GetKeyDown (KeyCode.E)) {
+			Application.LoadLevel ("Jay");
+		}
+	}
+
+	public void FadeIn () {
 		if (fading) return;
 		StartCoroutine (CoFade (0, 1));
 	}
 
-	void FadeOut () {
+	public void FadeOut () {
 		if (fading) return;
 		StartCoroutine (CoFade (1, 0));
 	}
@@ -34,6 +51,13 @@ public class Fade : MonoBehaviour {
 			yield return null;
 		} 
 
+		OnEndFade ();
 		fading = false;
+	}
+
+	void OnEndFade () {
+		if (material.color.a >= 0.95f) {
+			Application.LoadLevel ("Jay");
+		}
 	}
 }

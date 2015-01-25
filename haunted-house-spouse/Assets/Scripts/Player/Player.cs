@@ -4,6 +4,8 @@ using System.Collections;
 [RequireComponent (typeof (NetworkView))]
 public class Player : MonoBehaviour {
 
+	public Fade fade;
+
 	float speed = 5f;
 	bool canHide = false;
 	public bool CanHide {
@@ -12,11 +14,12 @@ public class Player : MonoBehaviour {
 	}
 
 	bool hiding = false;
+	bool canMove = true;
 
 	void Update () {
 		if (NetworkManager.Ghost) return;
 		
-		if (!hiding) {
+		if (!hiding && canMove) {
 			float translation = Input.GetAxis ("Horizontal") * speed * Time.deltaTime;
 			transform.Translate (translation, 0, 0);
 		}
@@ -25,6 +28,13 @@ public class Player : MonoBehaviour {
 			if (Input.GetKeyDown (KeyCode.W) || Input.GetKeyDown (KeyCode.UpArrow) || Input.GetKeyDown (KeyCode.S) || Input.GetKeyDown (KeyCode.DownArrow)) {
 				hiding = !hiding;
 			}
+		}
+	}
+
+	public void Faint () {
+		if (!hiding) {
+			fade.FadeIn ();
+			canMove = false;
 		}
 	}
 

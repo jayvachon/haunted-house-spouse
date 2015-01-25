@@ -63,6 +63,7 @@
      <Compile Include="Assets\Scripts\Interactables\Spider.cs" />
      <Compile Include="Assets\Scripts\Interactables\TreasureChest.cs" />
      <Compile Include="Assets\Scripts\JumpScareImage.cs" />
+     <Compile Include="Assets\Scripts\MainCamera.cs" />
      <Compile Include="Assets\Scripts\Network\NetworkManager.cs" />
      <Compile Include="Assets\Scripts\Player\Player.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerAnimation.cs" />
