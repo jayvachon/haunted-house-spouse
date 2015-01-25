@@ -15,12 +15,6 @@ public class AudioManager : MonoBehaviour {
 		sources.Add (GetComponent<AudioSource> ());
 	}
 
-	void Update () {
-		/*if (Input.GetKeyDown (KeyCode.Space)) {
-			Loop ("jumpscare");
-		}*/
-	}
-
 	public void Play (AudioClip clip) {
 		clips = ExtensionMethods.AppendArray (clips, clip);
 		AudioSource source = GetSource ();
