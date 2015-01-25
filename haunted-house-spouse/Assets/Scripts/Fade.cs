@@ -9,6 +9,9 @@ public class Fade : MonoBehaviour {
 	void Awake () {
 		material = GetComponent<Renderer> ().material;
 		material.color = new Color (0, 0, 0, 1);
+	}
+
+	void Start () {
 		FadeOut ();
 	}
 
