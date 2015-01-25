@@ -14,11 +14,11 @@ public class Spider : Interactable {
 	}
 
 	void GoUp () {
-		StartCoroutine (CoMove (Random.Range (transform.position.y, yMax)));
+		StartCoroutine (CoMove (yMax));
 	}
 
 	void GoDown () {
-		StartCoroutine (CoMove (Random.Range (transform.position.y, yMin)));
+		StartCoroutine (CoMove (yMin));
 	}
 
 	IEnumerator CoMove (float yEnd) {
@@ -37,6 +37,13 @@ public class Spider : Interactable {
 		}
 
 		moving = false;
+	}
+
+	void OnTriggerEnter (Collider other){
+		PlayerAnimation player = other.gameObject.GetScript<PlayerAnimation> ();
+		if (player != null) {
+			player.Faint ();
+		}
 	}
 
 	[RPC] void ReceiveContent (string newContent) {
