@@ -5,6 +5,8 @@ public class PlayerAnimation : MonoBehaviour {
 	
 	public float maxSpeed = 10f;
 	public Light flashlight;
+	public Light playerlight;
+	public Light flashlight2;
 	bool facingRight = true;
 
 	Animator anim; 
@@ -36,9 +38,22 @@ public class PlayerAnimation : MonoBehaviour {
 		transform.localScale = theScale;
 
 		if (facingRight) {
-			flashlight.transform.localEulerAngles = new Vector3 (flashlight.transform.localEulerAngles.x, 64, flashlight.transform.localEulerAngles.z);
+			flashlight.transform.localEulerAngles = new Vector3 (flashlight.transform.localEulerAngles.x, 74, flashlight.transform.localEulerAngles.z);
 		} else {
-			flashlight.transform.localEulerAngles = new Vector3 (flashlight.transform.localEulerAngles.x, -64, flashlight.transform.localEulerAngles.z);
+			flashlight.transform.localEulerAngles = new Vector3 (flashlight.transform.localEulerAngles.x, -74, flashlight.transform.localEulerAngles.z);
 		}
+
+		if (facingRight) {
+			playerlight.transform.localEulerAngles = new Vector3 (playerlight.transform.localEulerAngles.x, 13, playerlight.transform.localEulerAngles.z);
+		} else {
+			playerlight.transform.localEulerAngles = new Vector3 (playerlight.transform.localEulerAngles.x, -13, playerlight.transform.localEulerAngles.z);
+		}
+
+		if (facingRight) {
+			flashlight2.transform.localEulerAngles = new Vector3 (flashlight2.transform.localEulerAngles.x, 54, flashlight2.transform.localEulerAngles.z);
+		} else {
+			flashlight2.transform.localEulerAngles = new Vector3 (flashlight2.transform.localEulerAngles.x, -54, flashlight2.transform.localEulerAngles.z);
+		}
+
 	}
 }
