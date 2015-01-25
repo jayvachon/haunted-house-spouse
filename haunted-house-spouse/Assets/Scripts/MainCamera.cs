@@ -5,8 +5,8 @@ public class MainCamera : MonoBehaviour {
 
 	public Transform player;
 	Vector3 startPosition;
-	float xMin = -2;
-	float xMax = 2;
+	public float xMin = -2;
+	public float xMax = 2;
 
 	void Start () {
 		startPosition = transform.position;
