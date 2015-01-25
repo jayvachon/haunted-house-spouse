@@ -22,7 +22,7 @@ public class NetworkManager : MonoBehaviour {
 	Settings settings;
 
 	public static bool Ghost {
-		get { return Network.isServer; }
+		get { return Network.isClient; }
 	}
 
 	void Awake () {
@@ -116,7 +116,6 @@ public class NetworkManager : MonoBehaviour {
 	}
 
 	[RPC] void OnConnect () {
-		Debug.Log ("heard");
 		Application.LoadLevel ("Jay");
 	}
 }

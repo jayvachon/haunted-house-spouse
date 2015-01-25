@@ -54,9 +54,13 @@
      <Compile Include="Assets\Scripts\Input\MouseController.cs" />
      <Compile Include="Assets\Scripts\Interactables\Interactable.cs" />
      <Compile Include="Assets\Scripts\Interactables\Note.cs" />
+     <Compile Include="Assets\Scripts\Interactables\Spider.cs" />
+     <Compile Include="Assets\Scripts\Interactables\TreasureChest.cs" />
+     <Compile Include="Assets\Scripts\JumpScareImage.cs" />
      <Compile Include="Assets\Scripts\Network\NetworkManager.cs" />
      <Compile Include="Assets\Scripts\Player\Player.cs" />
      <Compile Include="Assets\Scripts\Player\PlayerAnimation.cs" />
+     <Compile Include="Assets\Scripts\UI\ActionsMenu.cs" />
      <Compile Include="Assets\Scripts\UI\InteractableText.cs" />
      <Compile Include="Assets\Scripts\UI\NotesMenu.cs" />
  <Reference Include="UnityEngine.UI">

@@ -3,20 +3,22 @@ using System.Collections;
 
 public class Note : Interactable {
 
-	string content = "";
-	public string Content {
-		get { return content; }
-		set { content = value; }
+	void Awake () {
+		if (NetworkManager.Ghost) {
+			Visible = true;
+		} else {
+			Visible = false;
+		}
 	}
 
-	protected override void OnInteract () {
-		SetText (Content);
+	public override void GhostClick () {
+		NotesMenu.instance.ShowNotes (this, new string[] {"test", "ok another ttest"});	
 	}
 
-	public override void Click (bool left) {
-		//if (!NetworkManager.Ghost) return;
-		if (left) {
-			NotesMenu.instance.ShowNotes (this, new string[] {"test", "ok another ttest"});	
+	[RPC] void ReceiveContent (string newContent) {
+		Content = newContent;
+		if (newContent != "") {
+			Visible = true;
 		}
 	}
 }

@@ -31,7 +31,7 @@ public class NotesMenu : MonoBehaviour {
 		for (int i = 0; i < notes.Length; i ++) {
 			string content = notes[i];
 			if (GUILayout.Button (content)) {
-				selectedNote.Content = content;
+				selectedNote.SendContent (content);
 				show = false;
 			}
 		}
